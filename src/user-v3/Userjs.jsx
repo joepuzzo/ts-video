@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 
-// @ts-ignore
 const TableData = ({ children }) => {
   return <td>{children}</td>;
 };
 
-const addOne = (v: number) => {
+const addOne = (v) => {
   return v + 1;
 }
 
-// @ts-ignore
 function User({ firstName, lastName, dateOfBirth }) {
 
   const [count, setCount] = useState(0);

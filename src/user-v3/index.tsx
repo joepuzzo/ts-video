@@ -1,7 +1,7 @@
 import User from "./User";
 import Userjs from "./Userjs";
 import userAsString from './User.tsx?raw';
-import userjsAsString from './Userjs.tsx?raw';
+import userjsAsString from './Userjs.jsx?raw';
 import Code from '../Code';
 
 function Index(){

@@ -1,11 +1,5 @@
 import React from "react";
 
-// @ts-ignore
-const TableData = ({ children }) => {
-  return <td>{children}</td>;
-};
-
-// @ts-ignore
 function User({ firstName, lastName, dateOfBirth }) {
   return (
     <table>
@@ -18,9 +12,9 @@ function User({ firstName, lastName, dateOfBirth }) {
       </thead>
       <tbody>
         <tr>
-          <TableData>{firstName}</TableData>
-          <TableData>{lastName}</TableData>
-          <TableData>{dateOfBirth.toDateString()}</TableData>
+          <td>{firstName}</td>
+          <td>{lastName}</td>
+          <td>{dateOfBirth.toDateString()}</td>
         </tr>
       </tbody>
     </table>
