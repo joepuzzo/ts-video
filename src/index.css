@@ -39,6 +39,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  font-weight: bold;
 }
 button:hover {
   border-color: #646cff;
@@ -46,6 +47,10 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+button:disabled{
+  opacity: 50%;
+  cursor: not-allowed;
 }
 
 @media (prefers-color-scheme: light) {
@@ -109,8 +114,16 @@ a:hover {
 }
 
 main { 
-  min-width: 700px;
+  /* min-width: 1300px; */
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid#04AA6D;
+  width: 100%;
+  padding-bottom: 2rem;
 }

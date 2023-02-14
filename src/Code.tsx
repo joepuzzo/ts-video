@@ -7,13 +7,13 @@ function Code({ input1, input2 }){
     Prism.highlightAll();
   },[])
   return (
-    <div style={{ display: 'flex', gap: '16px'}}>
-      <pre className="language-jsx">
+    <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap'}}>
+      <pre className="language-jsx" style={{flex: '1', minWidth: '600px'}}>
         <code className="language-jsx">
           {input1}
         </code>
       </pre>
-      <pre className="language-jsx">
+      <pre className="language-jsx" style={{flex: '1', minWidth: '600px'}}>
         <code className="language-jsx">
           {input2}
         </code>
