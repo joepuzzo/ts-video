@@ -1,41 +1,22 @@
-import React, { ReactNode, ComponentType, ButtonHTMLAttributes, useState } from "react";
+import React, { useState } from "react";
 
-interface TableDataProps {
-  children: ReactNode;
-}
-
-const TableData = ({ children }: TableDataProps) => {
+const TableData = ({ children }) => {
   return <td>{children}</td>;
 };
 
-const addOne = (v: number) => {
+const addOne = (v) => {
   return v + 1;
 }
 
-// Note: we use "type" and we use "&" so we can combine two types
-type ButtonProps = { 
-  color?: string;
-} & ButtonHTMLAttributes<HTMLButtonElement>; 
-
-interface UserProps {
-  firstName: string;
-  lastName: string;
-  dateOfBirth: Date;
-  thing: ReactNode;
-  Button: ComponentType<ButtonProps>; 
-  disabled?: boolean;                 // Note: ? means optional
-  color: string;
-}
-
-export const RedButton = ({ color, ...rest }: ButtonProps) => {
+export const BlueButton = ({ color, ...rest }) => {
   return (
-    <button style={{ backgroundColor: 'red', color }} {...rest}>
+    <button style={{ backgroundColor: 'blue', color }} {...rest}>
       Add One
     </button>
   )
 }
 
-function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color }: UserProps) {
+function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color }) {
 
   const [count, setCount] = useState(0);
 

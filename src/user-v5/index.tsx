@@ -7,8 +7,8 @@ import Code from '../Code';
 function Index(){
   return (
     <>
-      <Userjs firstName="Robot" lastName="JS" dateOfBirth={new Date("2022-01-01")} thing={2} Button={BlueButton} disabled={false} color="black"/>
-      <User firstName="Robot" lastName="JS" dateOfBirth={new Date("2022-01-01")} thing="Hello" Button={RedButton} disabled color="black"/>  
+      <Userjs firstName="Robot" lastName="JS" dateOfBirth={new Date("2022-01-01")} thing={2} Button={BlueButton} disabled />
+      <User firstName="Robot" lastName="JS" dateOfBirth={new Date("2022-01-01")} thing="Hello" Button={RedButton} color="black"/>  
 {/* @ts-ignore */}
 <Code 
 input1={
@@ -18,8 +18,7 @@ input1={
   dateOfBirth={new Date("2022-01-01")} 
   thing={2}
   Button={BlueButton} 
-  disabled={false} 
-  color="black" />
+  disabled />
 `} 
 input2={
 `<User 
@@ -27,8 +26,7 @@ input2={
   lastName="JS" 
   dateOfBirth={new Date("2022-01-01")}
   thing="Hello"
-  Button={RedButton} 
-  disabled 
+  Button={RedButton}  
   color="black" 
   />
 `}/>

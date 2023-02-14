@@ -11,6 +11,7 @@ function User({ firstName, lastName, dateOfBirth }: UserProps) {
     <table>
       <thead>
         <tr>
+          <th>Written With</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Date of Birth</th>
@@ -18,6 +19,7 @@ function User({ firstName, lastName, dateOfBirth }: UserProps) {
       </thead>
       <tbody>
         <tr>
+          <td>TypeScript</td>
           <td>{firstName}</td>
           <td>{lastName}</td>
           <td>{dateOfBirth.toDateString()}</td>

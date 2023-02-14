@@ -1,14 +1,14 @@
-import React, { ReactNode, useState } from "react";
+import React, { FC, ReactNode, useState } from "react";
 
 interface TableDataProps {
   children: ReactNode;
 }
 
-const TableData = ({ children }: TableDataProps) => {
+const TableData: FC<TableDataProps> = ({ children }) => {
   return <td>{children}</td>;
 };
 
-const addOne = (v: number) => {
+const addOne = (v: number): number => {
   return v + 1;
 }
 
@@ -18,13 +18,13 @@ interface UserProps {
   dateOfBirth: Date;
 }
 
-function User({ firstName, lastName, dateOfBirth }: UserProps) {
+function User({ firstName, lastName, dateOfBirth }: UserProps): ReactNode {
 
   // Note: Look mom ... no types ...
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState<number>(0);
 
-  const increment = () => {
-    setCount( prevCount => addOne(prevCount) );
+  const increment = (): void => {
+    setCount( (prevCount: number) => addOne(prevCount) );
   }
 
   return (

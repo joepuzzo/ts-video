@@ -1,4 +1,4 @@
-import React, { Children, ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 interface TableDataProps {
   children: ReactNode;
@@ -19,6 +19,7 @@ function User({ firstName, lastName, dateOfBirth }: UserProps) {
     <table>
       <thead>
         <tr>
+          <th>Written With</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Date of Birth</th>
@@ -26,6 +27,7 @@ function User({ firstName, lastName, dateOfBirth }: UserProps) {
       </thead>
       <tbody>
         <tr>
+          <TableData>TypeScript</TableData>
           <TableData>{firstName}</TableData>
           <TableData>{lastName}</TableData>
           <TableData>{dateOfBirth.toDateString()}</TableData>

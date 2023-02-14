@@ -1,10 +1,20 @@
-import React from "react";
+import React, { FC, ReactNode } from "react";
 
-const TableData = ({ children }) => {
+interface TableDataProps {
+  children: ReactNode;
+}
+
+const TableData: FC<TableDataProps> = ({ children }) => {
   return <td>{children}</td>;
 };
 
-function User({ firstName, lastName, dateOfBirth }) {
+interface UserProps {
+  firstName: string;
+  lastName: string;
+  dateOfBirth: Date;
+}
+
+function User({ firstName, lastName, dateOfBirth }: UserProps): ReactNode {
   return (
     <table>
       <thead>
@@ -17,7 +27,7 @@ function User({ firstName, lastName, dateOfBirth }) {
       </thead>
       <tbody>
         <tr>
-          <TableData>JavaScript</TableData>
+          <TableData>TypeScript</TableData>
           <TableData>{firstName}</TableData>
           <TableData>{lastName}</TableData>
           <TableData>{dateOfBirth.toDateString()}</TableData>

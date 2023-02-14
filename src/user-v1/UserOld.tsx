@@ -1,6 +1,12 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-function User({ firstName, lastName, dateOfBirth }) {
+interface UserProps {
+  firstName: string;
+  lastName: string;
+  dateOfBirth: Date;
+}
+
+function User({ firstName, lastName, dateOfBirth }: UserProps): ReactNode {
   return (
     <table>
       <thead>
@@ -13,7 +19,7 @@ function User({ firstName, lastName, dateOfBirth }) {
       </thead>
       <tbody>
         <tr>
-          <td>JavaScript</td>
+          <td>TypeScript</td>
           <td>{firstName}</td>
           <td>{lastName}</td>
           <td>{dateOfBirth.toDateString()}</td>

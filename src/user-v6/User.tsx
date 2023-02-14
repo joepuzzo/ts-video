@@ -12,7 +12,6 @@ const addOne = (v: number) => {
   return v + 1;
 }
 
-// Note: we use "type" and we use "&" so we can combine two types
 type ButtonProps = { 
   color?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>; 
@@ -23,7 +22,7 @@ interface UserProps {
   dateOfBirth: Date;
   thing: ReactNode;
   Button: ComponentType<ButtonProps>; 
-  disabled?: boolean;                 // Note: ? means optional
+  disabled?: boolean;                
   color: string;
 }
 

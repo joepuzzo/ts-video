@@ -6,6 +6,7 @@ import UserV2 from './user-v2';
 import UserV3 from './user-v3';
 import UserV4 from './user-v4';
 import UserV5 from './user-v5';
+import UserV6 from './user-v6';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +20,7 @@ function App() {
         <Link to="v3">V3</Link>
         <Link to="v4">V4</Link>
         <Link to="v5">V5</Link>
+        <Link to="v6">V6</Link>
       </nav>
       <main>
         <h1>Why Not Typescript {version}</h1>
@@ -29,6 +31,7 @@ function App() {
           <Route path="/v3" element={ <UserV3 />}/>
           <Route path="/v4" element={ <UserV4 />}/>
           <Route path="/v5" element={ <UserV5 />}/>
+          <Route path="/v6" element={ <UserV6 />}/>
         </Routes>        
       </main>
     </div>
