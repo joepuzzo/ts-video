@@ -1,4 +1,5 @@
 import User, { RedButton } from "./User";
+// @ts-ignore
 import Userjs, { BlueButton } from "./Userjs";
 import userAsString from './User.tsx?raw';
 import userjsAsString from './Userjs.jsx?raw';

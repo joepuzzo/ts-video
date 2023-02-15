@@ -1,9 +1,11 @@
 import User, { RedButton } from "./User";
+// @ts-ignore
 import Userjs, { BlueButton } from "./Userjs";
 import userAsString from './User.tsx?raw';
 import userjsAsString from './Userjs.jsx?raw';
 import userOldAsString from './UserOld.tsx?raw';
 import Code from '../Code';
+// @ts-ignore
 import Heading from '../Heading';
 import { useState } from "react";
 
