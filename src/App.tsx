@@ -29,13 +29,13 @@ function App() {
         </StatusMessage> */}
      
         <Routes>
-          <Route path="/" element={<Navigate to="v1"/>} />
-          <Route path="/v1" element={<UserV1 />} />
-          <Route path="/v2" element={ <UserV2 />}/>
-          <Route path="/v3" element={ <UserV3 />}/>
-          <Route path="/v4" element={ <UserV4 />}/>
-          <Route path="/v5" element={ <UserV5 />}/>
-          <Route path="/v6" element={ <UserV6 />}/>
+          <Route path="" element={<Navigate to="v1"/>} />
+          <Route path="v1" element={<UserV1 />} />
+          <Route path="v2" element={ <UserV2 />}/>
+          <Route path="v3" element={ <UserV3 />}/>
+          <Route path="v4" element={ <UserV4 />}/>
+          <Route path="v5" element={ <UserV5 />}/>
+          <Route path="v6" element={ <UserV6 />}/>
         </Routes>        
       </main>
     </div>
