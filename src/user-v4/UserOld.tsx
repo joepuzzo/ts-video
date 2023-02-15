@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from "react";
+import React, { FC, ReactNode, ComponentType, MouseEventHandler, useState } from "react";
 
 interface TableDataProps {
   children: ReactNode;
@@ -12,13 +12,27 @@ const addOne = (v: number): number => {
   return v + 1;
 }
 
+interface ButtonProps {
+  onClick: MouseEventHandler<HTMLButtonElement>
+}
+
 interface UserProps {
   firstName: string;
   lastName: string;
   dateOfBirth: Date;
+  thing: ReactNode;
+  Button: ComponentType<ButtonProps>;
 }
 
-function User({ firstName, lastName, dateOfBirth }: UserProps): ReactNode {
+export const RedButton: FC<ButtonProps> = ({ onClick }): JSX.Element => {
+  return (
+    <button onClick={onClick} style={{ backgroundColor: 'red'}}>
+      Add One
+    </button>
+  )
+}
+
+function User({ firstName, lastName, dateOfBirth, thing, Button }: UserProps): ReactNode {
 
   const [count, setCount] = useState<number>(0);
 
@@ -36,6 +50,7 @@ function User({ firstName, lastName, dateOfBirth }: UserProps): ReactNode {
           <th>Date of Birth</th>
           <th>Count</th>
           <th>Action</th>
+          <th>Thing</th>
         </tr>
       </thead>
       <tbody>
@@ -46,10 +61,9 @@ function User({ firstName, lastName, dateOfBirth }: UserProps): ReactNode {
           <TableData>{dateOfBirth.toDateString()}</TableData>
           <TableData>{count}</TableData>
           <TableData>
-            <button onClick={increment}>
-              Add One
-            </button>
-          </TableData>
+            <Button onClick={increment} />
+          </TableData> 
+          <TableData>{thing}</TableData>
         </tr>
       </tbody>
     </table>

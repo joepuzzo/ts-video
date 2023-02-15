@@ -20,6 +20,7 @@ function User({ firstName, lastName, dateOfBirth }) {
     <table>
       <thead>
         <tr>
+          <th>Written With</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Date of Birth</th>
@@ -29,6 +30,7 @@ function User({ firstName, lastName, dateOfBirth }) {
       </thead>
       <tbody>
         <tr>
+          <TableData>JavaScript</TableData>
           <TableData>{firstName}</TableData>
           <TableData>{lastName}</TableData>
           <TableData>{dateOfBirth.toDateString()}</TableData>

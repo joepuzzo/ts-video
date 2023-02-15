@@ -44,6 +44,7 @@ function User({ firstName, lastName, dateOfBirth, thing, Button }: UserProps) {
     <table>
       <thead>
         <tr>
+        <th>Written With</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Date of Birth</th>
@@ -54,6 +55,7 @@ function User({ firstName, lastName, dateOfBirth, thing, Button }: UserProps) {
       </thead>
       <tbody>
         <tr>
+          <TableData>TypeScript</TableData>
           <TableData>{firstName}</TableData>
           <TableData>{lastName}</TableData>
           <TableData>{dateOfBirth.toDateString()}</TableData>

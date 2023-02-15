@@ -4,7 +4,7 @@ interface TableDataProps {
   children: ReactNode;
 }
 
-const TableData: FC<TableDataProps> = ({ children }) => {
+const TableData: FC<TableDataProps> = ({ children }): JSX.Element => {
   return <td>{children}</td>;
 };
 
