@@ -2,16 +2,18 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+a { 
+  color: #3E6AE1;
 }
 
 
@@ -118,15 +120,22 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 70px;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-top: 180px;
 }
 
 nav {
   display: flex;
   justify-content: center;
   border-bottom: 2px solid#04AA6D;
-  width: 100%;
-  padding-bottom: 2rem;
+  width: 100vw;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  position: fixed;
+  top: 0;
+  background-color: #242424;
+  z-index: 999;
 }
 
 .switch {

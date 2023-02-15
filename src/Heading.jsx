@@ -1,8 +1,13 @@
+import { Reminder} from './Reminder';
+
 export default function Heading({newSyntax, setNewSyntax}) {
   return (
     <div style={{display: "flex", width: "100%"}}>
       <h2 style={{ width: "100%"}}>JavaScript</h2>
       <div style={{width: "100%", display: "flex", justifyContent: "center", alignItems: "center", position: "relative"}}>
+        <div style={{ position: "absolute", left: "0px", display: "flex", alignItems: "center" }}>
+          <Reminder />
+        </div>
           <h2>TypeScript</h2>
           <div style={{ position: "absolute", right: "0px", display: "flex", alignItems: "center" }}>
             <strong>Verbose</strong>
