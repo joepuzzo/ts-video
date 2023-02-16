@@ -7,6 +7,7 @@ import UserV3 from './user-v3';
 import UserV4 from './user-v4';
 import UserV5 from './user-v5';
 import UserV6 from './user-v6';
+// @ts-ignore
 import {Description} from './Description';
 
 function App() {

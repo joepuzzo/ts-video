@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App'
+// @ts-ignore
 import {AppProvider} from './AppProvider'
 import './prism.css'
 import './index.css'
