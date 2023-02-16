@@ -5,14 +5,14 @@ interface TableDataProps {
 }
 
 const TableData = ({ children }: TableDataProps) => {
-  return <td>{children}</td>;
+  return <td className="td-class">{children}</td>;
 };
 
 const addOne = (v: number) => {
   return v + 1;
 }
 
-interface ButtonProps {
+export interface ButtonProps {
   onClick: MouseEventHandler<HTMLButtonElement>
 }
 
@@ -22,14 +22,6 @@ interface UserProps {
   dateOfBirth: Date;
   thing: ReactNode;
   Button: ComponentType<ButtonProps>;
-}
-
-export const RedButton = ({ onClick }: ButtonProps) => {
-  return (
-    <button onClick={onClick} style={{ backgroundColor: 'red'}}>
-      Add One
-    </button>
-  )
 }
 
 function User({ firstName, lastName, dateOfBirth, thing, Button }: UserProps) {
@@ -44,7 +36,7 @@ function User({ firstName, lastName, dateOfBirth, thing, Button }: UserProps) {
     <table>
       <thead>
         <tr>
-        <th>Written With</th>
+          <th>Written With</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Date of Birth</th>

@@ -7,6 +7,7 @@ import UserV3 from './user-v3';
 import UserV4 from './user-v4';
 import UserV5 from './user-v5';
 import UserV6 from './user-v6';
+import {Description} from './Description';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,11 +24,13 @@ function App() {
         <Link to="v6">V6</Link>
       </nav>
       <main>
-        <h1>Why Not Typescript {version}</h1>
+        <div className="flex">
+          <h1>Why Not Typescript {version}</h1>
+          <Description />
+        </div>
         {/* <StatusMessage>
           Hello World
         </StatusMessage> */}
-     
         <Routes>
           <Route path="/" element={<Navigate to="v1"/>} />
           <Route path="v1" element={<UserV1 />} />

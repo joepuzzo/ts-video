@@ -5,7 +5,7 @@ interface TableDataProps {
 }
 
 const TableData: FC<TableDataProps> = ({ children }): JSX.Element => {
-  return <td>{children}</td>;
+  return <td className="td-class">{children}</td>;
 };
 
 interface UserProps {

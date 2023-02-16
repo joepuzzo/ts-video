@@ -8,7 +8,6 @@ export default function Heading({newSyntax, setNewSyntax}) {
   useEffect(() => {
     const handleScroll = () => {
       if(window.pageYOffset > 470 ){
-        console.log(window.pageYOffset);
         ref.current.classList.add('sticky')
       } else {
         ref.current.classList.remove('sticky')

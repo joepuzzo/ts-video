@@ -314,6 +314,8 @@ input:checked + .slider:before {
   box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
   -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.15) \9;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.15) \9;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .ant-popover-inner-content {

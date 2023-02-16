@@ -5,7 +5,7 @@ interface TableDataProps {
 }
 
 const TableData: FC<TableDataProps> = ({ children }): JSX.Element => {
-  return <td>{children}</td>;
+  return <td className="td-class">{children}</td>;
 };
 
 const addOne = (v: number): number => {
@@ -22,14 +22,6 @@ interface UserProps {
   dateOfBirth: Date;
   thing: ReactNode;
   Button: ComponentType<ButtonProps>;
-}
-
-export const RedButton: FC<ButtonProps> = ({ onClick }): JSX.Element => {
-  return (
-    <button onClick={onClick} style={{ backgroundColor: 'red'}}>
-      Add One
-    </button>
-  )
 }
 
 function User({ firstName, lastName, dateOfBirth, thing, Button }: UserProps): ReactNode {

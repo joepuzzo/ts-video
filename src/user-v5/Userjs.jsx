@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const TableData = ({ children }) => {
-  return <td>{children}</td>;
+  return <td className="td-class">{children}</td>;
 };
 
 const addOne = (v) => {

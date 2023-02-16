@@ -1,7 +1,7 @@
 import React from "react";
 
 const TableData = ({ children }) => {
-  return <td>{children}</td>;
+  return <td className="td-class">{children}</td>;
 };
 
 function User({ firstName, lastName, dateOfBirth }) {

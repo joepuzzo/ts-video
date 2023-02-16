@@ -1,19 +1,11 @@
 import React, { useState } from "react";
 
 const TableData = ({ children }) => {
-  return <td>{children}</td>;
+  return <td className="td-class">{children}</td>;
 };
 
 const addOne = (v) => {
   return v + 1;
-}
-
-export const BlueButton = ({ onClick }) => {
-  return (
-    <button onClick={onClick} style={{ backgroundColor: 'blue'}}>
-      Add One
-    </button>
-  )
 }
 
 function User({ firstName, lastName, dateOfBirth, thing, Button }) {
