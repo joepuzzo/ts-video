@@ -1116,7 +1116,7 @@ function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color
 export default User;
 `,jm=({onClick:e,color:t,disabled:n})=>a("button",{onClick:e,style:{backgroundColor:"blue",color:t},disabled:n,children:"Add One"}),Wm=({onClick:e,color:t,disabled:n})=>a("button",{onClick:e,style:{backgroundColor:"red",color:t},disabled:n,children:"Add One"});function Hm(){const[e,t]=w.useState(!1);return y(Ht,{children:[a(bm,{firstName:"Robot",lastName:"JS",dateOfBirth:new Date("2022-01-01"),thing:2,Button:jm,disabled:!0,color:"green"}),a(Fm,{firstName:"Robot",lastName:"JS",dateOfBirth:new Date("2022-01-01"),thing:"Hello",Button:Wm,disabled:!0,color:"green"}),a(Kt,{newSyntax:e,setNewSyntax:t}),a(de,{input1:`import User from "./User";
 
-const BlueButton = ({ onClick }) => {
+const BlueButton = ({ onClick, color, disabled }) => {
   return (
     <button 
       onClick={onClick} 
@@ -1137,7 +1137,7 @@ const BlueButton = ({ onClick }) => {
   color="green"/>
 `,input2:e?`import User, { ButtonProps } from "./User";
 
-const RedButton = ({ onClick }: ButtonProps) => {
+const RedButton = ({ onClick, color, disabled }: ButtonProps) => {
   return (
     <button 
       onClick={onClick} 
@@ -1159,7 +1159,7 @@ const RedButton = ({ onClick }: ButtonProps) => {
 `:`import { FC } from "react";
 import User, { ButtonProps } from "./User";
 
-const RedButton: FC<ButtonProps> = ({ onClick, color, disabled  }): JSX.Element => {
+const RedButton: FC<ButtonProps> = ({ onClick, color, disabled }): JSX.Element => {
   return (
     <button 
       onClick={onClick} 
@@ -1388,7 +1388,7 @@ const Product = ({ a, b }) => {
   )
 } 
 
-const BlueButton = ({ onClick }) => {
+const BlueButton = ({ onClick, color, disabled }) => {
   return (
     <button 
       onClick={onClick} 
@@ -1433,7 +1433,7 @@ const Product = ({ a, b }: { a: number, b: number}) => {
   )
 } 
 
-const RedButton = ({ onClick }: ButtonProps) => {
+const RedButton = ({ onClick, color, disabled }: ButtonProps) => {
   return (
     <button 
       onClick={onClick} 
