@@ -98,7 +98,7 @@ const Product = ({ a, b }) => {
   )
 } 
 
-const BlueButton = ({ onClick }) => {
+const BlueButton = ({ onClick, color, disabled }) => {
   return (
     <button 
       onClick={onClick} 
@@ -145,7 +145,7 @@ const Product = ({ a, b }: { a: number, b: number}) => {
   )
 } 
 
-const RedButton = ({ onClick }: ButtonProps) => {
+const RedButton = ({ onClick, color, disabled }: ButtonProps) => {
   return (
     <button 
       onClick={onClick} 

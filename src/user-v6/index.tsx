@@ -41,7 +41,7 @@ input1={
   
 `import User from "./User";
 
-const BlueButton = ({ onClick }) => {
+const BlueButton = ({ onClick, color, disabled }) => {
   return (
     <button 
       onClick={onClick} 
@@ -64,7 +64,7 @@ const BlueButton = ({ onClick }) => {
 input2={ newSyntax ? 
 `import User, { ButtonProps } from "./User";
 
-const RedButton = ({ onClick }: ButtonProps) => {
+const RedButton = ({ onClick, color, disabled }: ButtonProps) => {
   return (
     <button 
       onClick={onClick} 
@@ -88,7 +88,7 @@ const RedButton = ({ onClick }: ButtonProps) => {
 `import { FC } from "react";
 import User, { ButtonProps } from "./User";
 
-const RedButton: FC<ButtonProps> = ({ onClick, color, disabled  }): JSX.Element => {
+const RedButton: FC<ButtonProps> = ({ onClick, color, disabled }): JSX.Element => {
   return (
     <button 
       onClick={onClick} 
