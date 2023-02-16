@@ -8,6 +8,9 @@ export const AppProvider = ({children}) => {
     visited: {}
   });
 
+  const [lineNumbers, setLineNumbers] = useState(false)
+
+
   const visit = (page) => {
     setState(prev => {
       const newState = {...prev};
@@ -19,6 +22,8 @@ export const AppProvider = ({children}) => {
   const value = {
     ...state,
     visit,
+    lineNumbers,
+    setLineNumbers,
   }
 
   return (

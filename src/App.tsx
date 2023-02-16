@@ -9,10 +9,13 @@ import UserV5 from './user-v5';
 import UserV6 from './user-v6';
 // @ts-ignore
 import {Description} from './Description';
+// @ts-ignore
+import { useApp } from './AppProvider';
 
 function App() {
   const [count, setCount] = useState(0)
   const version = useLocation().pathname.replace('/', '');
+  const { lineNumbers, setLineNumbers } = useApp();
 
   return (
     <div className="App">
@@ -23,6 +26,13 @@ function App() {
         <Link to="v4">V4</Link>
         <Link to="v5">V5</Link>
         <Link to="v6">V6</Link>
+        <div style={{ position: "absolute", right: "30px", display: "flex", alignItems: "center" }}>
+            <strong>Show Line Numbers</strong>
+            <label className="switch">
+              <input type="checkbox" checked={lineNumbers} onChange={(e) => setLineNumbers(e.target.checked) } />
+              <span className="slider round"></span>
+            </label>
+          </div>
       </nav>
       <main>
         <div className="flex">

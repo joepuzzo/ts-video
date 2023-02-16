@@ -1,3 +1,4 @@
+// User.jsx
 import React, { useState } from "react";
 
 const TableData = ({ children }) => {
@@ -8,7 +9,7 @@ const addOne = (v) => {
   return v + 1;
 }
 
-function User({ firstName, lastName, dateOfBirth, thing, Button }) {
+function User({ firstName, lastName, dateOfBirth, Button }) {
 
   const [count, setCount] = useState(0);
 
@@ -26,7 +27,6 @@ function User({ firstName, lastName, dateOfBirth, thing, Button }) {
           <th>Date of Birth</th>
           <th>Count</th>
           <th>Action</th>
-          <th>Thing</th>
         </tr>
       </thead>
       <tbody>
@@ -39,7 +39,6 @@ function User({ firstName, lastName, dateOfBirth, thing, Button }) {
           <TableData>
             <Button onClick={increment} />
           </TableData> 
-          <TableData>{thing}</TableData>
         </tr>
       </tbody>
     </table>

@@ -53,7 +53,6 @@ const BlueButton = ({ onClick }) => {
   firstName="Robot" 
   lastName="JS" 
   dateOfBirth={new Date("2022-01-01")} 
-  thing={2}
   Button={BlueButton} />
 `} 
 input2={ newSyntax ? 
@@ -71,7 +70,6 @@ const RedButton = ({ onClick }: ButtonProps) => {
   firstName="Robot" 
   lastName="JS" 
   dateOfBirth={new Date("2022-01-01")}
-  thing="Hello"
   Button={RedButton} />
 ` : 
 
@@ -90,7 +88,6 @@ const RedButton: FC<ButtonProps> = ({ onClick }): JSX.Element => {
   firstName="Robot" 
   lastName="JS" 
   dateOfBirth={new Date("2022-01-01")}
-  thing="Hello"
   Button={RedButton} />
 `
 }/>

@@ -1,119 +1,116 @@
-import User, { RedButton } from "./User";
+import User, { ButtonProps } from "./User";
 // @ts-ignore
-import Userjs, { BlueButton } from "./Userjs";
+import Userjs from "./Userjs";
 import userAsString from './User.tsx?raw';
 import userjsAsString from './Userjs.jsx?raw';
+import userOldAsString from './UserOld.tsx?raw';
 import Code from '../Code';
+// @ts-ignore
+import Heading from '../Heading';
+import { useState } from "react";
 
-// Note: in line type definition
-const Sum = ({ a, b }: { a: number, b: number }) => {
+// @ts-ignore
+const BlueButton = ({ onClick, color, disabled }) => {
   return (
-    <strong>{a + b}</strong>
+    <button onClick={onClick} style={{ backgroundColor: 'blue', color }} disabled={disabled}>
+      Add One
+    </button>
   )
-} 
-
-// Note: interface definition
-interface MathProps {
-  a: number, 
-  b: number
 }
 
-const Difference = ({ a, b }: MathProps) => {
+const RedButton = ({ onClick, color, disabled }: ButtonProps) => {
   return (
-    <strong>{a - b}</strong>
+    <button onClick={onClick} style={{ backgroundColor: 'red', color }} disabled={disabled}>
+      Add One
+    </button>
   )
-} 
-
-const Product = ({ a, b }: MathProps) => {
-  return (
-    <strong>{a * b}</strong>
-  )
-} 
+}
 
 function Index(){
+
+  const [newSyntax, setNewSyntax] = useState(false);
+
   return (
     <>
-      <Userjs 
-        firstName="Robot" 
-        lastName="JS" 
-        dateOfBirth={new Date("2022-01-01")} 
-        thing={<Sum a={24} b={4} />} 
-        Button={BlueButton} 
-        disabled />
-      <User 
-        firstName="Robot" 
-        lastName="JS" 
-        dateOfBirth={new Date("2022-01-01")} 
-        thing={<Difference a={24} b={4} />} 
-        Button={RedButton} 
-        color="black"/>  
+      <Userjs firstName="Robot" lastName="JS" dateOfBirth={new Date("2022-01-01")} thing={2} Button={BlueButton} disabled color="green"/>
+      <User firstName="Robot" lastName="JS" dateOfBirth={new Date("2022-01-01")} thing="Hello" Button={RedButton} disabled color="green"/>  
 {/* @ts-ignore */}
+<Heading newSyntax={newSyntax} setNewSyntax={setNewSyntax} />
 <Code 
 input1={
-`
-const Sum = ({ a, b }) => {
-  return (
-    <strong>{a + b}</strong>
-  )
-} 
+  
+`import User from "./User";
 
-const Difference = ({ a, b }) => {
+const BlueButton = ({ onClick }) => {
   return (
-    <strong>{a - b}</strong>
+    <button 
+      onClick={onClick} 
+      style={{ backgroundColor: 'blue', color }} 
+      disabled={disabled}>
+      Add One
+    </button>
   )
-} 
-
-const Product = ({ a, b }) => {
-  return (
-    <strong>{a * b}</strong>
-  )
-} 
+}
 
 <User 
   firstName="Robot" 
   lastName="JS" 
   dateOfBirth={new Date("2022-01-01")} 
-  thing={<Sum a={24} b={4} />} 
+  thing={2}
   Button={BlueButton} 
-  disabled />
+  disabled 
+  color="green"/>
 `} 
-input2={
-`// Note: in line type definition
-const Sum = ({ a, b }: { a: number, b: number }) => {
-  return (
-    <strong>{a + b}</strong>
-  )
-} 
+input2={ newSyntax ? 
+`import User, { ButtonProps } from "./User";
 
-// Note: interface definition
-interface MathProps {
-  a: number, 
-  b: number
+const RedButton = ({ onClick }: ButtonProps) => {
+  return (
+    <button 
+      onClick={onClick} 
+      style={{ backgroundColor: 'red', color }} 
+      disabled={disabled}>
+      Add One
+    </button>
+  )
 }
-
-const Difference = ({ a, b }: MathProps) => {
-  return (
-    <strong>{a - b}</strong>
-  )
-} 
-
-const Product = ({ a, b }: MathProps) => {
-  return (
-    <strong>{a * b}</strong>
-  )
-} 
 
 <User 
   firstName="Robot" 
   lastName="JS" 
   dateOfBirth={new Date("2022-01-01")}
-  thing={<Difference a={24} b={4} />} 
-  Button={RedButton}  
-  color="black" 
-  />
-`}/>
+  thing="Hello"
+  Button={RedButton} 
+  disabled 
+  color="green"/>
+` : 
+
+`import { FC } from "react";
+import User, { ButtonProps } from "./User";
+
+const RedButton: FC<ButtonProps> = ({ onClick, color, disabled  }): JSX.Element => {
+  return (
+    <button 
+      onClick={onClick} 
+      style={{ backgroundColor: 'red', color }} 
+      disabled={disabled}>
+      Add One
+    </button>
+  )
+}
+
+<User 
+  firstName="Robot" 
+  lastName="JS" 
+  dateOfBirth={new Date("2022-01-01")}
+  thing="Hello"
+  Button={RedButton}
+  disabled 
+  color="green"/>
+`
+}/>
       <br />
-      <Code input1={userjsAsString} input2={userAsString}/>
+      <Code input1={userjsAsString} input2={newSyntax ? userAsString : userOldAsString}/>
     </>
   )
 }

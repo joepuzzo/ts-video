@@ -1,3 +1,4 @@
+// User.jsx
 import React from "react";
 
 function User({ firstName, lastName, dateOfBirth }) {

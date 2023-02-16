@@ -19,7 +19,7 @@ const V1 = () => {
             The key difference between the two is that we needed to define <code>UserProps</code> in the Typescript code
           </li>
           <li>
-            Also, take note of the switch toggle "verbose" vs "simple". This will show you two different variations of things might be typed in the wild.
+            Also, take note of the switch toggle "verbose" vs "simple". This will show you two different variations of how things may be typed in the wild.
             Specifically in this example, note how we have a return type of <code>ReactNode</code> in verbose but not in simple. 
             <br />
             <div style={{display: 'flex', gap: '5px', alignItems: 'center'}}>
@@ -95,6 +95,62 @@ const V4 = () => {
             Previously we always rendered a simple hard coded button in the action column. 
             Now, we want the ability for the developer to pass in their own <code>Button</code> component.
           </li>
+          <li>
+            First, note the difference between the JS and TS. In the JS file we just defined our <code>BlueButton</code> and walla,
+            however for the RedButton in the TS file, we needed to import the <code>ButtonProps</code> that were defined from the <code>User.tsx</code> file.
+          </li>
+          <li>
+            Next, note the difference between the "verbose" and "simple" implementations. 
+            By using type inference and no longer making use of the <code>FX</code> type, we can greatly simplify the typescript code.
+          </li>
+        </ul>
+      </div>
+    </Tooltip>
+  )
+}
+
+const V5 = () => {
+  const { firstTime } = useVisited('v5');
+
+  return (
+    <Tooltip title="Info" openOnMount={firstTime}>
+      <div>
+        <ul style={{ paddingLeft: 0, textAlign: 'left', gap: '20px' }}>
+          <li>
+            Previously we allowed the user to pass a <code>Button</code> to the <code>User</code> component. Now, we want to allow them to pass some <code>thing</code>.
+          </li>
+          <li>
+            The difference this time, is that we are going to allow the user to pass any object that can be rendered in react.
+          </li>
+          <li>
+            Key thing to note is the difference between using <code>thing: ReactNode;</code> and <code>{"Button: ComponentType<ButtonProps>;"}</code> located in <code>UserPops</code>
+          </li>
+        </ul>
+      </div>
+    </Tooltip>
+  )
+}
+
+const V6 = () => {
+  const { firstTime } = useVisited('v5');
+
+  return (
+    <Tooltip title="Info" openOnMount={firstTime}>
+      <div>
+        <ul style={{ paddingLeft: 0, textAlign: 'left', gap: '20px' }}>
+          <li>
+            Now we want the user to be able to pass <code>color</code> and <code>disabled</code> properties to the user object.
+            In order to achieve this, we must first add the new properties to our <code>UserProps</code>. 
+            Take note how these are optional fields and use the <code>?</code> syntax.
+          </li>
+          <li>
+            Another thing to note here is how instead of defining our own ButtonProps from scratch we made use of defining a new type 
+            that combined all <code>ButtonHTMLAttributes</code> properties with our color property.
+          </li>
+          <li>
+            Finally, note how we want to pass color and disabled down to our <code>Button</code> and also have it be an optional field on our <code>TableData</code>
+            So we need to make sure we update both types.
+          </li>
         </ul>
       </div>
     </Tooltip>
@@ -108,8 +164,8 @@ export const Description = () => {
       <Route path="v2" element={ <V2 />}/>
       <Route path="v3" element={ <V3 />}/>
       <Route path="v4" element={ <V4 />}/>
-      <Route path="v5" element={ <V1 />}/>
-      <Route path="v6" element={ <V1 />}/>
+      <Route path="v5" element={ <V5 />}/>
+      <Route path="v6" element={ <V6 />}/>
     </Routes>       
   )
 }

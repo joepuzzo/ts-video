@@ -21,10 +21,11 @@ interface UserProps {
   firstName: string;
   lastName: string;
   dateOfBirth: Date;
+  thing: ReactNode;
   Button: ComponentType<ButtonProps>;
 }
 
-function User({ firstName, lastName, dateOfBirth, Button }: UserProps): ReactNode {
+function User({ firstName, lastName, dateOfBirth, thing, Button }: UserProps): ReactNode {
 
   const [count, setCount] = useState<number>(0);
 
@@ -42,6 +43,7 @@ function User({ firstName, lastName, dateOfBirth, Button }: UserProps): ReactNod
           <th>Date of Birth</th>
           <th>Count</th>
           <th>Action</th>
+          <th>Thing</th>
         </tr>
       </thead>
       <tbody>
@@ -54,6 +56,7 @@ function User({ firstName, lastName, dateOfBirth, Button }: UserProps): ReactNod
           <TableData>
             <Button onClick={increment} />
           </TableData> 
+          <TableData>{thing}</TableData>
         </tr>
       </tbody>
     </table>

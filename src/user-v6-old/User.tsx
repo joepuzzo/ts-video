@@ -1,15 +1,40 @@
-// User.jsx
-import React, { useState } from "react";
+import React, { ReactNode, ComponentType, ButtonHTMLAttributes, useState } from "react";
 
-const TableData = ({ children, color }) => {
-  return <td className="td-class" style={{ color }}>{children}</td>;
+interface TableDataProps {
+  children: ReactNode;
+}
+
+const TableData = ({ children }: TableDataProps) => {
+  return <td className="td-class">{children}</td>;
 };
 
-const addOne = (v) => {
+const addOne = (v: number) => {
   return v + 1;
 }
 
-function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color }) {
+type ButtonProps = { 
+  color?: string;
+} & ButtonHTMLAttributes<HTMLButtonElement>; 
+
+interface UserProps {
+  firstName: string;
+  lastName: string;
+  dateOfBirth: Date;
+  thing: ReactNode;
+  Button: ComponentType<ButtonProps>; 
+  disabled?: boolean;                
+  color: string;
+}
+
+export const RedButton = ({ color, ...rest }: ButtonProps) => {
+  return (
+    <button style={{ backgroundColor: 'red', color }} {...rest}>
+      Add One
+    </button>
+  )
+}
+
+function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color }: UserProps) {
 
   const [count, setCount] = useState(0);
 
@@ -21,7 +46,6 @@ function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color
     <table>
       <thead>
         <tr>
-          <th>Written With</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Date of Birth</th>
@@ -32,7 +56,6 @@ function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color
       </thead>
       <tbody>
         <tr>
-          <TableData color={color}>TypeScript</TableData>
           <TableData>{firstName}</TableData>
           <TableData>{lastName}</TableData>
           <TableData>{dateOfBirth.toDateString()}</TableData>

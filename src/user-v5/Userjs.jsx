@@ -1,3 +1,4 @@
+// User.jsx
 import React, { useState } from "react";
 
 const TableData = ({ children }) => {
@@ -8,15 +9,7 @@ const addOne = (v) => {
   return v + 1;
 }
 
-export const BlueButton = ({ color, ...rest }) => {
-  return (
-    <button style={{ backgroundColor: 'blue', color }} {...rest}>
-      Add One
-    </button>
-  )
-}
-
-function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color }) {
+function User({ firstName, lastName, dateOfBirth, thing, Button }) {
 
   const [count, setCount] = useState(0);
 
@@ -28,6 +21,7 @@ function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color
     <table>
       <thead>
         <tr>
+          <th>Written With</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Date of Birth</th>
@@ -38,12 +32,13 @@ function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color
       </thead>
       <tbody>
         <tr>
+          <TableData>JavaScript</TableData>
           <TableData>{firstName}</TableData>
           <TableData>{lastName}</TableData>
           <TableData>{dateOfBirth.toDateString()}</TableData>
           <TableData>{count}</TableData>
           <TableData>
-            <Button onClick={increment} disabled={disabled} color={color} />
+            <Button onClick={increment} />
           </TableData> 
           <TableData>{thing}</TableData>
         </tr>

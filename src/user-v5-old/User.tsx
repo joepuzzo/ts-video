@@ -1,5 +1,4 @@
-// User.tsx
-import React, { ReactNode, ComponentType, MouseEventHandler, useState } from "react";
+import React, { ReactNode, ComponentType, ButtonHTMLAttributes, useState } from "react";
 
 interface TableDataProps {
   children: ReactNode;
@@ -13,18 +12,30 @@ const addOne = (v: number) => {
   return v + 1;
 }
 
-export interface ButtonProps {
-  onClick: MouseEventHandler<HTMLButtonElement>
-}
+// Note: we use "type" and we use "&" so we can combine two types
+type ButtonProps = { 
+  color?: string;
+} & ButtonHTMLAttributes<HTMLButtonElement>; 
 
 interface UserProps {
   firstName: string;
   lastName: string;
   dateOfBirth: Date;
-  Button: ComponentType<ButtonProps>;
+  thing: ReactNode;
+  Button: ComponentType<ButtonProps>; 
+  disabled?: boolean;                 // Note: ? means optional
+  color: string;
 }
 
-function User({ firstName, lastName, dateOfBirth, Button }: UserProps) {
+export const RedButton = ({ color, ...rest }: ButtonProps) => {
+  return (
+    <button style={{ backgroundColor: 'red', color }} {...rest}>
+      Add One
+    </button>
+  )
+}
+
+function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color }: UserProps) {
 
   const [count, setCount] = useState(0);
 
@@ -36,24 +47,24 @@ function User({ firstName, lastName, dateOfBirth, Button }: UserProps) {
     <table>
       <thead>
         <tr>
-          <th>Written With</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Date of Birth</th>
           <th>Count</th>
           <th>Action</th>
+          <th>Thing</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <TableData>TypeScript</TableData>
           <TableData>{firstName}</TableData>
           <TableData>{lastName}</TableData>
           <TableData>{dateOfBirth.toDateString()}</TableData>
           <TableData>{count}</TableData>
           <TableData>
-            <Button onClick={increment} />
+            <Button onClick={increment} disabled={disabled} color={color} />
           </TableData> 
+          <TableData>{thing}</TableData>
         </tr>
       </tbody>
     </table>

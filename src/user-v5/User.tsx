@@ -1,4 +1,5 @@
-import React, { ReactNode, ComponentType, ButtonHTMLAttributes, useState } from "react";
+// User.tsx
+import React, { ReactNode, ComponentType, MouseEventHandler, useState } from "react";
 
 interface TableDataProps {
   children: ReactNode;
@@ -12,30 +13,19 @@ const addOne = (v: number) => {
   return v + 1;
 }
 
-// Note: we use "type" and we use "&" so we can combine two types
-type ButtonProps = { 
-  color?: string;
-} & ButtonHTMLAttributes<HTMLButtonElement>; 
+export interface ButtonProps {
+  onClick: MouseEventHandler<HTMLButtonElement>
+}
 
 interface UserProps {
   firstName: string;
   lastName: string;
   dateOfBirth: Date;
   thing: ReactNode;
-  Button: ComponentType<ButtonProps>; 
-  disabled?: boolean;                 // Note: ? means optional
-  color: string;
+  Button: ComponentType<ButtonProps>;
 }
 
-export const RedButton = ({ color, ...rest }: ButtonProps) => {
-  return (
-    <button style={{ backgroundColor: 'red', color }} {...rest}>
-      Add One
-    </button>
-  )
-}
-
-function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color }: UserProps) {
+function User({ firstName, lastName, dateOfBirth, thing, Button }: UserProps) {
 
   const [count, setCount] = useState(0);
 
@@ -47,6 +37,7 @@ function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color
     <table>
       <thead>
         <tr>
+          <th>Written With</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Date of Birth</th>
@@ -57,12 +48,13 @@ function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color
       </thead>
       <tbody>
         <tr>
+          <TableData>TypeScript</TableData>
           <TableData>{firstName}</TableData>
           <TableData>{lastName}</TableData>
           <TableData>{dateOfBirth.toDateString()}</TableData>
           <TableData>{count}</TableData>
           <TableData>
-            <Button onClick={increment} disabled={disabled} color={color} />
+            <Button onClick={increment} />
           </TableData> 
           <TableData>{thing}</TableData>
         </tr>

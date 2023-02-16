@@ -1,19 +1,22 @@
+// User.tsx
 import React, { ReactNode, ComponentType, ButtonHTMLAttributes, useState } from "react";
 
 interface TableDataProps {
   children: ReactNode;
+  color?: string;
 }
 
-const TableData = ({ children }: TableDataProps) => {
-  return <td className="td-class">{children}</td>;
+const TableData = ({ children, color }: TableDataProps) => {
+  return <td className="td-class" style={{ color }}>{children}</td>;
 };
 
 const addOne = (v: number) => {
   return v + 1;
 }
 
+// Note: we use "type" and we use "&" so we can combine two types
 type ButtonProps = { 
-  color?: string;
+  color?: string;                     // Note: ? means optional
 } & ButtonHTMLAttributes<HTMLButtonElement>; 
 
 interface UserProps {
@@ -21,17 +24,9 @@ interface UserProps {
   lastName: string;
   dateOfBirth: Date;
   thing: ReactNode;
-  Button: ComponentType<ButtonProps>; 
-  disabled?: boolean;                
-  color: string;
-}
-
-export const RedButton = ({ color, ...rest }: ButtonProps) => {
-  return (
-    <button style={{ backgroundColor: 'red', color }} {...rest}>
-      Add One
-    </button>
-  )
+  Button: ComponentType<ButtonProps>;
+  disabled?: boolean;                 // Note: ? means optional
+  color?: string;                     // Note: ? means optional
 }
 
 function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color }: UserProps) {
@@ -46,6 +41,7 @@ function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color
     <table>
       <thead>
         <tr>
+          <th>Written With</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Date of Birth</th>
@@ -56,6 +52,7 @@ function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color
       </thead>
       <tbody>
         <tr>
+          <TableData color={color}>TypeScript</TableData>
           <TableData>{firstName}</TableData>
           <TableData>{lastName}</TableData>
           <TableData>{dateOfBirth.toDateString()}</TableData>

@@ -1,12 +1,19 @@
-// User.jsx
 import React, { useState } from "react";
 
-const TableData = ({ children, color }) => {
-  return <td className="td-class" style={{ color }}>{children}</td>;
+const TableData = ({ children }) => {
+  return <td className="td-class">{children}</td>;
 };
 
 const addOne = (v) => {
   return v + 1;
+}
+
+export const BlueButton = ({ color, ...rest }) => {
+  return (
+    <button style={{ backgroundColor: 'blue', color }} {...rest}>
+      Add One
+    </button>
+  )
 }
 
 function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color }) {
@@ -21,7 +28,6 @@ function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color
     <table>
       <thead>
         <tr>
-          <th>Written With</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Date of Birth</th>
@@ -32,7 +38,6 @@ function User({ firstName, lastName, dateOfBirth, thing, Button, disabled, color
       </thead>
       <tbody>
         <tr>
-          <TableData color={color}>TypeScript</TableData>
           <TableData>{firstName}</TableData>
           <TableData>{lastName}</TableData>
           <TableData>{dateOfBirth.toDateString()}</TableData>
