@@ -7,6 +7,7 @@ import UserV3 from './user-v3';
 import UserV4 from './user-v4';
 import UserV5 from './user-v5';
 import UserV6 from './user-v6';
+import UserV7 from './user-v7';
 // @ts-ignore
 import {Description} from './Description';
 // @ts-ignore
@@ -26,6 +27,7 @@ function App() {
         <Link to="v4">V4</Link>
         <Link to="v5">V5</Link>
         <Link to="v6">V6</Link>
+        <Link to="v7">V7</Link>
         <div style={{ position: "absolute", right: "30px", display: "flex", alignItems: "center" }}>
             <strong>Show Line Numbers</strong>
             <label className="switch">
@@ -50,6 +52,7 @@ function App() {
           <Route path="v4" element={ <UserV4 />}/>
           <Route path="v5" element={ <UserV5 />}/>
           <Route path="v6" element={ <UserV6 />}/>
+          <Route path="v7" element={ <UserV7 />}/>
         </Routes>        
       </main>
     </div>

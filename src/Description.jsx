@@ -132,7 +132,7 @@ const V5 = () => {
 }
 
 const V6 = () => {
-  const { firstTime } = useVisited('v5');
+  const { firstTime } = useVisited('v6');
 
   return (
     <Tooltip title="Info" openOnMount={firstTime}>
@@ -157,6 +157,26 @@ const V6 = () => {
   )
 }
 
+const V7 = () => {
+  const { firstTime } = useVisited('v7');
+
+  return (
+    <Tooltip title="Info" openOnMount={firstTime}>
+      <div>
+        <ul style={{ paddingLeft: 0, textAlign: 'left', gap: '20px' }}>
+          <li>
+            In this example we show you can use an interface in multiple places and in multiple ways.
+          </li>
+          <li>
+            Note how in the TypeScript example we define <code>Sum</code> and <code>Difference</code> using an interface,
+            however we use an inline type definition for the <code>Product</code> component.
+          </li>
+        </ul>
+      </div>
+    </Tooltip>
+  )
+}
+
 export const Description = () => {
   return (
     <Routes>
@@ -166,6 +186,7 @@ export const Description = () => {
       <Route path="v4" element={ <V4 />}/>
       <Route path="v5" element={ <V5 />}/>
       <Route path="v6" element={ <V6 />}/>
+      <Route path="v7" element={ <V7 />}/>
     </Routes>       
   )
 }
