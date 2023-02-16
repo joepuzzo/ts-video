@@ -32,8 +32,8 @@ function Index(){
 
   return (
     <>
-      <Userjs firstName="Robot" lastName="JS" dateOfBirth={new Date("2022-01-01")} thing={2} Button={BlueButton}/>
-      <User firstName="Robot" lastName="JS" dateOfBirth={new Date("2022-01-01")} thing="Hello" Button={RedButton}/>  
+      <Userjs firstName="Robot" lastName="JS" dateOfBirth={new Date("2022-01-01")} Button={BlueButton}/>
+      <User firstName="Robot" lastName="JS" dateOfBirth={new Date("2022-01-01")} Button={RedButton}/>  
 {/* @ts-ignore */}
 <Heading newSyntax={newSyntax} setNewSyntax={setNewSyntax} />
 <Code 

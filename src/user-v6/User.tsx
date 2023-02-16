@@ -15,7 +15,7 @@ const addOne = (v: number) => {
 }
 
 // Note: we use "type" and we use "&" so we can combine two types
-type ButtonProps = { 
+export type ButtonProps = { 
   color?: string;                     // Note: ? means optional
 } & ButtonHTMLAttributes<HTMLButtonElement>; 
 
